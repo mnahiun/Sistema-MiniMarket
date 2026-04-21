@@ -14,7 +14,6 @@ public class Conexion {
     private final String USER = "root";
     private final String PASSWORD = "";
     
-    
     public Connection cadena;
     public static Conexion instancia;
     
