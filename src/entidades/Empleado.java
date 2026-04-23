@@ -49,5 +49,5 @@ public abstract class Empleado {
        // Método abstracto que define el acceso del empleado (Polimorfismo)
   public abstract String[] getPermisosAcceso();
   
-       public abstract void mostrarInfo();  
+       public abstract String mostrarInfo();  
 }
