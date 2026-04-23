@@ -43,9 +43,9 @@ public abstract class Empleado {
         this.cedula = cedula;
     }
       
-    public String getRol(){
+    // Metodo abstracto que define el rol de cada empleado 
+    public abstract String getRol();
     
-    }
        // Método abstracto que define el acceso del empleado (Polimorfismo)
   public abstract String[] getPermisosAcceso();
   
