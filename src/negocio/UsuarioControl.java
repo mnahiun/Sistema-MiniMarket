@@ -22,6 +22,7 @@ public class UsuarioControl {
         this.registrosMostrados = registrosMostrados;
     }
     
+    
      public DefaultTableModel listar(String texto){
      List<Usuario> lista = new ArrayList<>();
      lista.addAll(DATOS.listar(texto));

@@ -20,6 +20,7 @@ public class CategoriaControl {
      this.obj = new Categoria();
      this.registrosMostrados=0;
 
+     
     }
 
     public DefaultTableModel listar(String texto){

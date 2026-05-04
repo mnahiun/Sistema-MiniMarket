@@ -19,6 +19,7 @@ public class ProductoControl {
     private DefaultTableModel modeloTabla;
     public int registrosMostrados;
 
+    
     public ProductoControl() {
         this.DATOS = new ProductoDAO();
         DATOSCAT = new CategoriaDAO();
