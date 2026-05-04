@@ -12,15 +12,19 @@ public class Bodeguero  extends Empleado{
     super(idEmpleado, nombre, cedula);
   }
   
-    @Override
-  public String getRol() {
-  return "Bodeguero";
+   @Override
+    public String getRol() {
+             
+             return "Bodeguero";
   }
   
-   @Override
+  @Override
   public String[] getPermisosAcceso() {
-  String[] permisos = {"VER_INVENTARIO", "ACTUALIZAR_INVENTARIO"};
-  return permisos;
+  String[] permisos = {
+     "VER_INVENTARIO",
+     "ACTUALIZAR_INVENTARIO"
+    };
+              return permisos;
   }
   
    @Override

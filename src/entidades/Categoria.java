@@ -1,9 +1,6 @@
 
 package entidades;
 
-
-
-
 public class Categoria {
     
      private int id;
@@ -39,6 +36,8 @@ public class Categoria {
         this.nombre = nombre;
     }
 
+    
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -58,7 +57,7 @@ public class Categoria {
     //Metodo toString
     @Override
     public String toString() {
-        return "Categoria{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", activo=" + activo + '}';
+        return nombre;
     }
     
 }

@@ -57,24 +57,26 @@ public class Venta {
     
      /** Agrega un detalle y acumula el total. */
   public void agregarDetalle(DetalleVenta detalle) {
-  detalles.add(detalle);
-  total += detalle.getSubtotal();
+      detalles.add(detalle);
+      total += detalle.getSubtotal();
   }
   
   @Override
   public String toString() {
-  DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-  StringBuilder sb = new StringBuilder();
-  sb.append("=== VENTA #").append(idVenta)
-  .append(" | ").append(fecha.format(fmt))
-  .append(" | Cajero: ").append(cajero.getNombre())
-  .append(" ===\n");
-  for (DetalleVenta d : detalles) {
-  sb.append(d.toString()).append("\n");
+     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+     StringBuilder sb = new StringBuilder();
+     sb.append("=== VENTA #").append(idVenta)
+     .append(" | ").append(fecha.format(fmt))
+     .append(" | Cajero: ").append(cajero.getNombre())
+     .append(" ===\n");
+     
+     for (DetalleVenta d : detalles) {
+     sb.append(d.toString()).append("\n");
   }
-  sb.append(String.format("  TOTAL: $%.2f", total));
-  return sb.toString();
+     
+      sb.append(String.format("  TOTAL: $%.2f", total));
+     
+      return sb.toString();
   }
-    
-  
+   
 }

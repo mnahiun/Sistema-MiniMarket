@@ -15,7 +15,7 @@ public class DetalleVenta {
     public DetalleVenta(Producto producto, int cantidad, double subtotal) {
         this.producto = producto;
         this.cantidad = cantidad;
-        this.subtotal = producto.getPrecioUnitario() * cantidad;
+        this.subtotal = producto.getPrecio_Venta() * cantidad;
     }
     
     //getters 

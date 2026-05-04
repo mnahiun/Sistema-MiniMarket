@@ -18,10 +18,11 @@ public class Cajero extends Empleado{
   
   @Override
   public String[] getPermisosAcceso() {
-     return new String[]{
-  "REGISTRAR_VENTA",
-  "VER_INVENTARIO"
+   String[] permisos ={
+     "REGISTRAR_VENTA",
+     "VER_INVENTARIO"
   };
+   return permisos;
  }
 
     @Override
