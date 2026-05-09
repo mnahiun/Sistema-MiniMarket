@@ -3,32 +3,30 @@ package entidades;
 
 
 public class Cliente extends Persona {
-    
-    private String direccion;
-    
 
-    public Cliente(String nombre, String cedula, String direccion) {
-        super(nombre, cedula);
-        this.direccion = direccion;
+    public Cliente() {
     }
 
-    public String getDireccion() {
-        return direccion;
+    public Cliente(int id, String tipoPersona, String nombre, String tipoDocumento, String numDocumento, String direccion, String telefono, String email, boolean activo) {
+        super(id, tipoPersona, nombre, tipoDocumento, numDocumento, direccion, telefono, email, activo);
     }
-  
-    public Producto solicitarProducto(int id){
-    
-    }
-    
-    public boolean realizarPago(double monto){
-    
-    }
-    
-    
+
     @Override
-    public void mostrarInfo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String mostrarInfo() {
+        return "Persona: " + getTipoPersona()+ "\n"
+             + "Id: " + getId() + "\n"
+             + "Nombre: " + getNombre() + "\n"
+             + "Tipo documento: " + getTipoDocumento() + "\n"
+             + "Numero documento: " + getNumDocumento() + "\n"
+             + "Dirección: " + getDireccion() + "\n"
+             + "Telefono: " + getTelefono() + "\n"
+             + "Email: "  + getEmail() + "\n"
+             + "Activo: " + isActivo();
     }
+
+   
+      
+    
     
     
 }
