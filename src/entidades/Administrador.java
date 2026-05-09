@@ -7,10 +7,12 @@ package entidades;
  * Aplica: Herencia (extiende Empleado), Polimorfismo (sobreescribe getRol y getPermisosAcceso)
  */
 public class Administrador extends Empleado {
+
+    public Administrador(int idEmpleado, String nombre, String tipoDocumento, String numDocumento) {
+        super(idEmpleado, nombre, tipoDocumento, numDocumento);
+    }
     
-    public Administrador(int idEmpleado, String nombre, String cedula) {
-  super(idEmpleado, nombre, cedula);
-  }
+   
     
     @Override
   public String getRol() {
@@ -35,6 +37,7 @@ public class Administrador extends Empleado {
     public String mostrarInfo() {
      return "Id Empleado: " + getIdEmpleado() +  "\n"
             + "Nombre: " + getNombre() +  "\n"
-            + "Cedula: " + getCedula();
+            + "Tipo documento: " + getTipoDocumento() +  "\n" 
+            + "Numero Documento: " + getNumDocumento();
     }
 }
