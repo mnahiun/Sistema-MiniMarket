@@ -4,17 +4,22 @@ package presentacion;
 import entidades.Usuario;
 import javax.swing.JOptionPane;
 import negocio.UsuarioControl;
+import presentacion.FrmPrincipal;
+import presentacion.FrmRegistros;
+
 
 public class FrmLogin extends javax.swing.JFrame {
 
     private final UsuarioControl CONTROL;
-    
+    public static FrmRegistro fr;
     public FrmLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.CONTROL = new UsuarioControl();
     }
    
+    
+    
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +41,7 @@ public class FrmLogin extends javax.swing.JFrame {
         txtClave = new javax.swing.JPasswordField();
         btnIniciarSesion = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btnRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login MiniMarket");
@@ -106,6 +112,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/resized_160x160.png"))); // NOI18N
 
+        btnRegistro.setText("Registro");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -125,8 +138,13 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnIniciarSesion)
-                .addGap(134, 134, 134))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnIniciarSesion)
+                        .addGap(134, 134, 134))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnRegistro)
+                        .addGap(31, 31, 31))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +161,9 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(30, 30, 30)
                 .addComponent(btnIniciarSesion)
-                .addGap(0, 123, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(btnRegistro)
+                .addGap(14, 14, 14))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 400, 510));
@@ -152,14 +172,22 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        String nombre = txtUsuario.getText().trim();
-    String clave = new String(txtClave.getPassword()).trim();
+        String nombre = txtUsuario.getText();
+    String clave = new String(txtClave.getPassword());
 
     if (nombre.isEmpty() || clave.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Digite su usuario y contraseña");
+        JOptionPane.showMessageDialog(this, "Digite su usuario y contraseña",
+                       "Warning", JOptionPane.WARNING_MESSAGE);
         return;
     }
-      Usuario usuario = CONTROL.login(nombre, clave);
+           
+        Usuario usuario = CONTROL.login(nombre, clave);
+         
+            FrmPrincipal principal = new FrmPrincipal();
+      principal.setVisible(true);
+      this.dispose();
+      
+      
       
        if (usuario != null) {
            FrmCategoria frm = new FrmCategoria();
@@ -167,15 +195,25 @@ public class FrmLogin extends javax.swing.JFrame {
        
          
     } else {
-        JOptionPane.showMessageDialog(this, "Usuario y/o clave incorrectos");
+        JOptionPane.showMessageDialog(this, "Usuario y/o clave incorrectos", 
+                            "Error", JOptionPane.ERROR_MESSAGE);
         txtClave.setText("");
         txtUsuario.requestFocus();
-        
+       
     }
-      FrmPrincipal principal = new FrmPrincipal();
-      principal.setVisible(true);
-      this.dispose();
+      
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        
+      FrmRegistros registros = new FrmRegistros();
+      registros.setVisible(true);
+      this.dispose();
+      
+      fr= new FrmRegistro(null, true);
+      fr.setVisible(true);
+      
+    }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,6 +252,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -48,7 +48,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
         }finally{
           ps=null;
           rs=null;
-          CON.cerrarConexion();
+          
         }
         
         return registros;
@@ -74,7 +74,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
             JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps=null;
-            CON.cerrarConexion();
+           
         }
         return resp;
     }
@@ -100,7 +100,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
             JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps=null;
-            CON.cerrarConexion();
+            
         }
         return resp;
     }
@@ -119,7 +119,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
             JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps=null;
-            CON.cerrarConexion();
+            
         }
         return resp;
     }
@@ -138,7 +138,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
             JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps=null;
-            CON.cerrarConexion();
+          
         }
         return resp;
     }
@@ -159,7 +159,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
             JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps=null;
-            CON.cerrarConexion();
+            
         }
         return totalRegistros;
     }
@@ -184,7 +184,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
         }finally {
           ps=null;
           rs=null;
-          CON.cerrarConexion();
+         
         }
          return resp;   
     }
@@ -204,7 +204,7 @@ public class ProductoDAO implements CrudSimpleInterface<Producto> {
             JOptionPane.showMessageDialog(null, e.getMessage());
         } finally {
             ps = null;
-            CON.cerrarConexion();
+            
         }
         return resp;
     }

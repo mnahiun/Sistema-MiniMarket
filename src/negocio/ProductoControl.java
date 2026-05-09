@@ -36,7 +36,7 @@ public class ProductoControl {
      this.modeloTabla = new DefaultTableModel(null, titulos);
 
      String estado;
-     String[] registro =  new String[8];
+     String[] registro =  new String[9];
      this.registrosMostrados=0;
      
 
@@ -56,7 +56,8 @@ public class ProductoControl {
             registro[4] = Double.toString(item.getPrecio_Venta());
             registro[5] = Integer.toString(item.getStock());
             registro[6] = item.getDescripcion();
-            registro[7] = estado;
+            registro[7] = item.getImagen();
+            registro[8] = estado;
         this.modeloTabla.addRow(registro);
         this.registrosMostrados=this.registrosMostrados+1;
     

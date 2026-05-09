@@ -9,8 +9,7 @@ import java.sql.SQLException;
 
 /**
 
-- Singleton de conexión a la base de datos MySQL.
-- Modifique URL, USER y PASSWORD según su configuración local.
+ Singleton de conexión a la base de datos 
   */
 
 public class Conexion {
@@ -19,35 +18,45 @@ public class Conexion {
     private static final String URL = "jdbc:mysql://localhost:3308/dbMiniMarket";
     private static final String DB = "dbMiniMarket";
     private static final String USER = "root";
-    private static final String PASSWORD = "1234";  // <– cambie si tiene contraseña
+    private static final String PASSWORD = "";  
     
     
-    public static Connection instancia = null;
-   
+    public static Connection cadena;
+    public static Conexion instancia;
   
-    private Conexion() {}
+    private Conexion() {
+       this.cadena = null;
+    }
   
     public static Connection getConexion() throws SQLException {
-      if (instancia == null || instancia.isClosed()) {
+      if (cadena == null || cadena.isClosed()) {
       try {
           Class.forName("com.mysql.cj.jdbc.Driver");
-          instancia = DriverManager.getConnection(URL, USER, PASSWORD);
+          cadena = DriverManager.getConnection(URL, USER, PASSWORD);
           } catch (ClassNotFoundException e) {
          throw new SQLException("Driver MySQL no encontrado: "  + e.getMessage());
        }
     }
-        return instancia;
+        return cadena;
   }
   
     public static void cerrarConexion() {
      try {
-        if (instancia != null && !instancia.isClosed()) {
-        instancia.close();
+        if (cadena != null && !cadena.isClosed()) {
+        cadena.close();
      }
         } catch (SQLException e) {
           System.err.println("Error al cerrar conexión: " + e.getMessage());
        }
      }
+   
+    public synchronized static Conexion getInstancia(){
+        if (instancia==null) {
+            instancia = new Conexion();
+        }
+        return instancia;
+    }
+    
   }
  
 
