@@ -7,10 +7,12 @@ package entidades;
  * 
  */
 public class Bodeguero  extends Empleado{
+
+    public Bodeguero(int idEmpleado, String nombre, String tipoDocumento, String numDocumento) {
+        super(idEmpleado, nombre, tipoDocumento, numDocumento);
+    }
     
-  public Bodeguero(int idEmpleado, String nombre, String cedula) {
-    super(idEmpleado, nombre, cedula);
-  }
+ 
   
     @Override
   public String getRol() {
@@ -26,7 +28,7 @@ public class Bodeguero  extends Empleado{
    @Override
     public String mostrarInfo() {
     return "Id empleado: " + getIdEmpleado() + "\n"
-            + "Nombre: " + getNombre() +  "\n"
-            + "Cedula: " + getCedula();
+          + "Tipo documento: " + getTipoDocumento() +  "\n" 
+          + "Numero Documento: " + getNumDocumento();
     }
 }
