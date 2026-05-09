@@ -33,7 +33,7 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
            ps.setString(1, "%" + texto + "%");
            rs = ps.executeQuery();
             while (rs.next()){                
-                registros.add(new Usuario(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getBoolean(10)));
+                registros.add(new Usuario(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),rs.getString(10), rs.getBoolean(11)));
             }
             ps.close();
             rs.close();
@@ -194,7 +194,7 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
         ps.setString(2, clave);
         rs = ps.executeQuery();
         if (rs.next()) {
-            return new Usuario(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getBoolean(10));
+            return new Usuario(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getBoolean(11));
         }
         ps.close();
         rs.close();
