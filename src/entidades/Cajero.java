@@ -1,15 +1,13 @@
 
 package entidades;
 
-/**
- *  Clase Cajero.
-* Aplica: Herencia (extiende Empleado), Polimorfismo
- */
 public class Cajero extends Empleado{
+
+    public Cajero(int idEmpleado, String nombre, String tipoDocumento, String numDocumento) {
+        super(idEmpleado, nombre, tipoDocumento, numDocumento);
+    }
     
-  public Cajero(int idEmpleado, String nombre, String cedula) {
-    super(idEmpleado, nombre, cedula);
-  }
+ 
   
    @Override
   public String getRol() {
@@ -27,7 +25,7 @@ public class Cajero extends Empleado{
     @Override
     public String mostrarInfo() {
     return "Id empleado: " + getIdEmpleado() + "\n"
-            + "Nombre: " + getNombre() +  "\n"
-            + "Cedula: " + getCedula();
+         + "Tipo documento: " + getTipoDocumento() +  "\n" 
+         + "Numero Documento: " + getNumDocumento();
     }
 }
