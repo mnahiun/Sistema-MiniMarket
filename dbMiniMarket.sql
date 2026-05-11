@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-05-2026 a las 19:00:22
+-- Tiempo de generación: 12-05-2026 a las 01:48:40
 -- Versión del servidor: 8.0.45
 -- Versión de PHP: 8.0.30
 
@@ -99,6 +99,22 @@ CREATE TABLE `pago` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `permisos`
+--
+
+CREATE TABLE `permisos` (
+  `id` int NOT NULL,
+  `rol_id` int NOT NULL,
+  `inventario` bit(1) NOT NULL DEFAULT b'1',
+  `acceso` bit(1) NOT NULL DEFAULT b'1',
+  `ventas` bit(1) NOT NULL DEFAULT b'1',
+  `compras` bit(1) NOT NULL DEFAULT b'1',
+  `consultas` bit(1) NOT NULL DEFAULT b'1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `persona`
 --
 
@@ -123,12 +139,13 @@ CREATE TABLE `persona` (
 CREATE TABLE `producto` (
   `id` int NOT NULL,
   `categoria_id` int NOT NULL,
-  `codigo` varchar(50) COLLATE utf8mb3_spanish_ci DEFAULT NULL,
-  `nombre` varchar(100) COLLATE utf8mb3_spanish_ci NOT NULL,
+  `codigo` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `nombre` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   `precio_venta` decimal(11,2) NOT NULL,
   `stock` int NOT NULL,
-  `descripcion` varchar(250) COLLATE utf8mb3_spanish_ci NOT NULL,
-  `imagen` varchar(50) COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `descripcion` varchar(250) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `imagen` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `proveedor_Id` int DEFAULT NULL,
   `activo` bit(1) NOT NULL DEFAULT b'1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
@@ -141,7 +158,8 @@ CREATE TABLE `producto` (
 CREATE TABLE `rol` (
   `id` int NOT NULL,
   `nombre` varchar(20) COLLATE utf8mb3_spanish_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb3_spanish_ci DEFAULT NULL
+  `descripcion` varchar(255) COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `activo` int DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_spanish_ci;
 
 -- --------------------------------------------------------
@@ -225,6 +243,13 @@ ALTER TABLE `pago`
   ADD KEY `fk_pago__venta_idx` (`venta_id`);
 
 --
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_permisos_rol_idx` (`rol_id`);
+
+--
 -- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
@@ -238,7 +263,8 @@ ALTER TABLE `persona`
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nombre_UNIQUE` (`nombre`),
-  ADD KEY `fk_producto_categoria_idx` (`categoria_id`);
+  ADD KEY `fk_producto_categoria_idx` (`categoria_id`),
+  ADD KEY `fk_producto_proveedor` (`proveedor_Id`);
 
 --
 -- Indices de la tabla `rol`
@@ -296,6 +322,12 @@ ALTER TABLE `ingreso`
 -- AUTO_INCREMENT de la tabla `pago`
 --
 ALTER TABLE `pago`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `permisos`
+--
+ALTER TABLE `permisos`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
@@ -360,10 +392,17 @@ ALTER TABLE `pago`
   ADD CONSTRAINT `fk_pago_venta` FOREIGN KEY (`venta_id`) REFERENCES `venta` (`id`) ON DELETE CASCADE;
 
 --
+-- Filtros para la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD CONSTRAINT `fk_permisos_rol` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`id`) ON DELETE CASCADE;
+
+--
 -- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_producto_proveedor` FOREIGN KEY (`proveedor_Id`) REFERENCES `persona` (`id`);
 
 --
 -- Filtros para la tabla `usuario`
