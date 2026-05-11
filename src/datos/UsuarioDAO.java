@@ -33,7 +33,7 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
            ps.setString(1, "%" + texto + "%");
            rs = ps.executeQuery();
             while (rs.next()){                
-                registros.add(new Usuario(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),rs.getString(10), rs.getBoolean(11)));
+                registros.add(new Usuario(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getBoolean(10)));
             }
             ps.close();
             rs.close();
@@ -52,14 +52,15 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
     public boolean insertar(Usuario obj) {
          resp=false;
         try {
-          ps=CON.getConexion().prepareStatement("INSERT INTO usuario (nombre, tipoDocumento, numeroDocumento, descripcion, telefono, email, clave,activo) VALUES (?,?,?,?,?,?,?,1)");
-          ps.setString(1, obj.getNombre());
-          ps.setString(2, obj.getTipoDocumento());
-          ps.setString(3, obj.getNumeroDocumento());
-          ps.setString(4, obj.getDescripcion());
-          ps.setString(5, obj.getTelefono());
-          ps.setString(6, obj.getEmail());
-          ps.setString(7, obj.getClave());
+          ps=CON.getConexion().prepareStatement("INSERT INTO usuario (rol_id, nombre, tipo_documento, num_documento, descripcion, telefono, email, clave,activo) VALUES (?,?,?,?,?,?,?,?,1)");
+          ps.setInt(1, obj.getRolId());
+          ps.setString(2, obj.getNombre());
+          ps.setString(3, obj.getTipoDocumento());
+          ps.setString(4, obj.getNumeroDocumento());
+          ps.setString(5, obj.getDescripcion());
+          ps.setString(6, obj.getTelefono());
+          ps.setString(7, obj.getEmail());
+          ps.setString(8, obj.getClave());
            
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -89,7 +90,6 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
           ps.setString(8, obj.getClave());
           ps.setInt(9, obj.getId());
           
-          ps.setInt(3, obj.getId());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
@@ -140,6 +140,26 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
         }
         return resp;
     }
+    
+    @Override
+    public boolean eliminar(int id) {
+        resp = false;
+        try {
+         ps = CON.getConexion().prepareStatement("DELETE FROM usuario WHERE id=?");
+         ps.setInt(1, id);
+           if (ps.executeUpdate() > 0){ 
+               resp = true;
+           }
+           ps.close();
+       } catch (SQLException e) {
+           JOptionPane.showMessageDialog(null, e.getMessage());
+       } finally {
+           ps = null;
+           CON.cerrarConexion();
+        }
+        return resp;
+    }
+    
 
     @Override
     public int total() {
@@ -194,7 +214,7 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
         ps.setString(2, clave);
         rs = ps.executeQuery();
         if (rs.next()) {
-            return new Usuario(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getBoolean(11));
+            return new Usuario(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),  rs.getBoolean(10));
         }
         ps.close();
         rs.close();
@@ -207,5 +227,6 @@ public class UsuarioDAO implements CrudSimpleInterface<Usuario>{
     }
     return null;
 }
+
     
 }
