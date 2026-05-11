@@ -123,6 +123,25 @@ public class CategoriaDAO  implements CrudSimpleInterface<Categoria>{
         }
         return resp;
     }
+    
+     @Override
+    public boolean eliminar(int id) {
+        resp = false;
+          try {
+            ps = CON.getConexion().prepareStatement("DELETE FROM categoria WHERE id=?");
+            ps.setInt(1, id);
+              if (ps.executeUpdate() > 0){
+                  resp = true;
+              }
+              ps.close();
+          } catch (SQLException e) {
+              JOptionPane.showMessageDialog(null, e.getMessage());
+          } finally {
+              ps = null;
+              CON.cerrarConexion();
+          }
+          return resp;
+     }
 
     @Override
     public int total() {
@@ -168,4 +187,6 @@ public class CategoriaDAO  implements CrudSimpleInterface<Categoria>{
         }
          return resp;   
     }
+
+   
 }
