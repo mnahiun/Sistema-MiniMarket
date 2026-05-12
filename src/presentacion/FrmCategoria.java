@@ -69,6 +69,7 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
         lbTotalRegistros = new javax.swing.JLabel();
         btnActivar = new javax.swing.JButton();
         btnDesactivar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -89,6 +90,8 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
         tabGeneral.setBackground(new java.awt.Color(0, 204, 204));
         tabGeneral.setForeground(new java.awt.Color(0, 0, 0));
         tabGeneral.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
         jLabel1.setText("Nombre :");
 
@@ -139,6 +142,13 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -150,22 +160,25 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
                         .addComponent(btnActivar)
                         .addGap(47, 47, 47)
                         .addComponent(btnDesactivar)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbTotalRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(34, 34, 34)
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(btnBuscar)
-                                .addGap(26, 26, 26)
-                                .addComponent(btnNuevo)
-                                .addGap(36, 36, 36)
-                                .addComponent(btnEdtar)))
+                        .addComponent(jLabel1)
+                        .addGap(34, 34, 34)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBuscar)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnNuevo)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnEdtar)
                         .addContainerGap(70, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,11 +197,14 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTotalRegistros)
                     .addComponent(btnActivar)
-                    .addComponent(btnDesactivar))
+                    .addComponent(btnDesactivar)
+                    .addComponent(btnEliminar))
                 .addGap(30, 30, 30))
         );
 
         tabGeneral.addTab("Listado", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
 
         jLabel2.setText("Nombre:");
 
@@ -366,10 +382,10 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
              String id = String.valueOf(tablaListado.getValueAt(tablaListado.getSelectedRow(), 0));
             String nombre = String.valueOf(tablaListado.getValueAt(tablaListado.getSelectedRow(), 1));
  
-            if (JOptionPane.showConfirmDialog(this, "¿Deseas activar el registro:" + nombre + "?", "Activar",  JOptionPane.YES_NO_OPTION) == 0) {
+            if (JOptionPane.showConfirmDialog(this, "¿Deseas activar la categoria: " + nombre + "?", "Activar",  JOptionPane.YES_NO_OPTION) == 0) {
                 String resp = this.CONTROL.desactivar(Integer.parseInt(id));
                 if (resp.equals("OK")) {
-                    this.mensajeOk("Registro activado");
+                    this.mensajeOk("Categoria activada");
                     this.listar("");
                 }else{
                 
@@ -377,7 +393,7 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
                 }
             }
         } else {
-            this.mensajeError("Seleccione 1 registro ha activar");
+            this.mensajeError("Seleccione 1 categoria ha activar");
         }
     }//GEN-LAST:event_btnActivarActionPerformed
 
@@ -386,10 +402,10 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
              String id = String.valueOf(tablaListado.getValueAt(tablaListado.getSelectedRow(), 0));
             String nombre = String.valueOf(tablaListado.getValueAt(tablaListado.getSelectedRow(), 1));
  
-            if (JOptionPane.showConfirmDialog(this, "¿Deseas desactivar el registro:" + nombre + "?", "Desactivar",  JOptionPane.YES_NO_OPTION) == 0) {
+            if (JOptionPane.showConfirmDialog(this, "¿Deseas desactivar la categoria: " + nombre + "?", "Desactivar",  JOptionPane.YES_NO_OPTION) == 0) {
                 String resp = this.CONTROL.desactivar(Integer.parseInt(id));
                 if (resp.equals("OK")) {
-                    this.mensajeOk("Registro desactivado");
+                    this.mensajeOk("Categoria desactivada");
                     this.listar("");
                 }else{
                 
@@ -397,9 +413,33 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
                 }
             }
         } else {
-            this.mensajeError("Seleccione 1 registro a desactivar");
+            this.mensajeError("Seleccione 1 categoria ha desactivar");
         }
     }//GEN-LAST:event_btnDesactivarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+          if (tablaListado.getSelectedRowCount() == 1) {
+        String id = String.valueOf(tablaListado.getValueAt(tablaListado.getSelectedRow(), 0));
+        String nombre = String.valueOf(tablaListado.getValueAt(tablaListado.getSelectedRow(), 1));
+
+        int confirmar = JOptionPane.showConfirmDialog(this,
+                "¿Estás seguro que deseas eliminar la categoria: " + nombre + "? Esta acción no se puede deshacer",
+                "Eliminar", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+            String resp = this.CONTROL.eliminar(Integer.parseInt(id));
+            if (resp.equals("OK")) {
+                this.mensajeOk("Categoria eliminada exitosamente");
+                this.listar("");
+                this.limpiar();
+            } else {
+                this.mensajeError(resp);
+            }
+        }
+    } else {
+        this.mensajeError("Seleccione 1 categoria a eliminar");
+    }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -408,6 +448,7 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnDesactivar;
     private javax.swing.JButton btnEdtar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel1;
