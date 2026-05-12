@@ -5,7 +5,7 @@ import entidades.Usuario;
 import javax.swing.JOptionPane;
 import negocio.UsuarioControl;
 import presentacion.FrmPrincipal;
-import presentacion.FrmRegistros;
+import presentacion.FrmRegistro;
 
 
 public class FrmLogin extends javax.swing.JFrame {
@@ -206,9 +206,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         
-      FrmRegistros registros = new FrmRegistros();
-      registros.setVisible(true);
-      this.dispose();
       
       fr= new FrmRegistro(null, true);
       fr.setVisible(true);
