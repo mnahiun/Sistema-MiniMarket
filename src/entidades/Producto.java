@@ -12,6 +12,7 @@ public class Producto {
   private String descripcion;
   private String imagen;
   private boolean activo;
+  private int proveedor_Id;
 
     
      //Constructores 
@@ -19,7 +20,7 @@ public class Producto {
     public Producto() {
     }
   
-    public Producto(int id, int categoria_Id, String codigo, String nombre, double precio_Venta, int stock, String descripcion, String imagen, boolean activo) {
+    public Producto(int id, int categoria_Id, String codigo, String nombre, double precio_Venta, int stock, String descripcion, String imagen, boolean activo,int  proveedor_Id) {
         this.id = id;
         this.categoria_Id = categoria_Id;
         this.codigo = codigo;
@@ -29,6 +30,7 @@ public class Producto {
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.activo = activo;
+        this.proveedor_Id= proveedor_Id;
     }
 
     public int getId() {
@@ -99,27 +101,18 @@ public class Producto {
         return activo;
     }
 
-    // Getters y Setters
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
-    /**
-    - Descuenta del stock la cantidad vendida.
-    - @return false si no hay stock suficiente.
-     */
-    public boolean descontarStock(int cantidad) {
-        if (cantidad > stock) return false;
-        this.stock -= cantidad;
-        
-        return true;
+    public int getProveedor_Id() {
+        return proveedor_Id;
     }
-  
-  /** Agrega existencias al stock (usado por el Bodeguero). */
-  public void agregarStock(int cantidad) {
-  this.stock += cantidad;
-  }
 
+    public void setProveedor_Id(int proveedor_Id) {
+        this.proveedor_Id = proveedor_Id;
+    }
+    
     @Override
     public String toString() {
         return "Producto" + "\n"
@@ -131,7 +124,8 @@ public class Producto {
              + "Stock" + stock  +  "\n"
              + "Descripción: " + descripcion + "\n"
              + "Imagen: " + imagen + "\n"
-             + "Activo: " + activo;
+             + "Activo: " + activo + "\n"
+             + "Id Proveedor: " + proveedor_Id;
     }
 
   
