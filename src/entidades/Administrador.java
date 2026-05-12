@@ -1,11 +1,6 @@
 
 package entidades;
 
-/**
- *
- * Clase Administrador.
- * Aplica: Herencia (extiende Empleado), Polimorfismo (sobreescribe getRol y getPermisosAcceso)
- */
 public class Administrador extends Empleado {
 
     public Administrador(int idEmpleado, String nombre, String tipoDocumento, String numDocumento) {
