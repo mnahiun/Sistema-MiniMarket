@@ -5,7 +5,6 @@ package entidades;
 public class Usuario {
     private int id;
     private int rolId;
-    private String rolNombre;
     private String nombre;
     private String tipoDocumento;
     private String numeroDocumento;
@@ -20,10 +19,9 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, int rolId, String rolNombre, String nombre, String tipoDocumento, String numeroDocumento, String descripcion, String telefono, String email, String clave, boolean activo) {
+    public Usuario(int id, int rolId,  String nombre, String tipoDocumento, String numeroDocumento, String descripcion, String telefono, String email, String clave, boolean activo) {
         this.id = id;
         this.rolId = rolId;
-        this.rolNombre = rolNombre;
         this.nombre = nombre;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
@@ -51,16 +49,7 @@ public class Usuario {
     public void setRolId(int rolId) {
         this.rolId = rolId;
     }
-
-    public String getRolNombre() {
-        return rolNombre;
-    }
-
-    public void setRolNombre(String rolNombre) {
-        this.rolNombre = rolNombre;
-    }
     
-
     public String getNombre() {
         return nombre;
     }
