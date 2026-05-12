@@ -1,11 +1,6 @@
 
 package entidades;
 
-/**
- * Clase Bodeguero.
- * Aplica: Herencia (extiende Empleado), Polimorfismo
- * 
- */
 public class Bodeguero  extends Empleado{
 
     public Bodeguero(int idEmpleado, String nombre, String tipoDocumento, String numDocumento) {
