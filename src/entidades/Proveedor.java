@@ -4,6 +4,10 @@ package entidades;
 
 public class Proveedor  extends Persona{
 
+    public Proveedor() {
+    }
+
+    
     public Proveedor(int id, String tipoPersona, String nombre, String tipoDocumento, String numDocumento,
                                       String direccion, String telefono, String email, boolean activo) {
         
@@ -24,7 +28,13 @@ public class Proveedor  extends Persona{
              + "Activo: " + isActivo();
         
     }
+
+    @Override
+    public String toString() {
+        return getNombre();
+    }
        
+    
   }
 
    
