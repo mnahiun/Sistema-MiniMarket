@@ -2,24 +2,30 @@
 package negocio;
 
 
+import datos.RolDAO;
+import negocio.RolControl;
 import datos.UsuarioDAO;
+import entidades.Rol;
 import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 
 public class UsuarioControl {
     
     private final UsuarioDAO DATOS;
+    private final RolDAO DATOSROL; 
     private Usuario obj;
     private DefaultTableModel modeloTabla;
     public int registrosMostrados;
 
     public UsuarioControl() {
         this.DATOS = new UsuarioDAO();
+        DATOSROL = new RolDAO();
         this.obj = new Usuario();
-        this.registrosMostrados = registrosMostrados;
+        this.registrosMostrados = 0;
     }
     
      public DefaultTableModel listar(String texto){
@@ -136,6 +142,28 @@ public class UsuarioControl {
         }
 
     }
+    
+    public String eliminar(int id){
+        if(DATOS.eliminar(id)){
+           return "OK";
+      }else{
+          return "No se puede eliminar  el registro";
+    }
+  }
+    
+     public DefaultComboBoxModel seleccionarRol(){
+     DefaultComboBoxModel item = new DefaultComboBoxModel();
+     List<Rol> lista = new ArrayList<>();
+     lista = DATOSROL.listar("");
+     
+        for (Rol rol : lista) {
+            item.addElement(new Rol(rol.getId(), rol.getNombre(), rol.getDescripcion(), rol.isActivo()));
+            
+        }
+      return item;
+    
+    }
+    
 
     public int total(){
         return DATOS.total();
