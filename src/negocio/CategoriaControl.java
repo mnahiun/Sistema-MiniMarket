@@ -113,7 +113,13 @@ public class CategoriaControl {
         }
 
     }
-
+    public String eliminar(int id){
+        if(DATOS.eliminar(id)){
+           return "OK";
+      }else{
+          return "No se puede eliminar  el registro";
+    }
+  }
     public int total(){
         return DATOS.total();
     }
