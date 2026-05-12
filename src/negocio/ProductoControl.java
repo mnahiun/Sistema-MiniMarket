@@ -3,8 +3,10 @@ package negocio;
 
 import datos.CategoriaDAO;
 import datos.ProductoDAO;
+import datos.ProveedorDAO;
 import entidades.Categoria;
 import entidades.Producto;
+import entidades.Proveedor;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -15,6 +17,7 @@ public class ProductoControl {
     
     private final ProductoDAO DATOS;
     private final CategoriaDAO DATOSCAT; 
+    private final ProveedorDAO DATOSPRO;
     private Producto obj;
     private DefaultTableModel modeloTabla;
     public int registrosMostrados;
@@ -22,6 +25,7 @@ public class ProductoControl {
     public ProductoControl() {
         this.DATOS = new ProductoDAO();
         DATOSCAT = new CategoriaDAO();
+        DATOSPRO = new ProveedorDAO();
         this.obj = new Producto();
         this.registrosMostrados = 0;
         
@@ -32,11 +36,11 @@ public class ProductoControl {
      List<Producto> lista = new ArrayList<>();
      lista.addAll(DATOS.listar(texto));
 
-     String[] titulos = {"Id", "CategoriaId", "Codigo", "Nombre", "Precio Venta", "Stock", "Descripcion", "Imagen","Estado"};
+     String[] titulos = {"Id", "Categoria Id", "Codigo", "Nombre", "Precio Venta", "Stock", "Descripcion", "Imagen","Estado", "Proveedor Id"};
      this.modeloTabla = new DefaultTableModel(null, titulos);
 
      String estado;
-     String[] registro =  new String[9];
+     String[] registro =  new String[10];
      this.registrosMostrados=0;
      
 
@@ -58,6 +62,7 @@ public class ProductoControl {
             registro[6] = item.getDescripcion();
             registro[7] = item.getImagen();
             registro[8] = estado;
+            registro[9] = Integer.toString(item.getProveedor_Id());
         this.modeloTabla.addRow(registro);
         this.registrosMostrados=this.registrosMostrados+1;
     
@@ -65,7 +70,7 @@ public class ProductoControl {
        return this.modeloTabla;
     }
 
-    public String insertar(int categoria_Id, String codigo, String nombre, double precio_Venta, int stock, String descripcion, String imagen){
+    public String insertar(int categoria_Id, String codigo, String nombre, double precio_Venta, int stock, String descripcion, String imagen, int proveedor_Id){
     if(DATOS.existe(nombre)){
         return "El registro ya existe";
     }else{
@@ -76,6 +81,7 @@ public class ProductoControl {
         obj.setStock(stock);
         obj.setDescripcion(descripcion);
         obj.setImagen(imagen);
+        obj.setProveedor_Id(proveedor_Id);
         if(DATOS.insertar(obj)){
             return "OK";
         }else{
@@ -84,7 +90,7 @@ public class ProductoControl {
     }
     }
 
-    public String actualizar(int id, int categoria_Id, String codigo, String nombre, String nombreAnt, double precio_Venta, int stock, String descripcion, String imagen){
+    public String actualizar(int id, int categoria_Id, String codigo, String nombre, String nombreAnt, double precio_Venta, int stock, String descripcion, String imagen, int proveedor_Id){
         if (nombre.equals(nombreAnt)) {
            obj.setId(id);
             obj.setCategoria_Id(categoria_Id);
@@ -94,6 +100,7 @@ public class ProductoControl {
             obj.setStock(stock);
             obj.setDescripcion(descripcion);
             obj.setImagen(imagen);
+            obj.setProveedor_Id(proveedor_Id);
             if (DATOS.actualizar(obj)) {
                 return "OK";
             }else{
@@ -112,6 +119,7 @@ public class ProductoControl {
                 obj.setStock(stock);
                 obj.setDescripcion(descripcion);
                 obj.setImagen(imagen);
+                obj.setProveedor_Id(proveedor_Id);
                 if (DATOS.actualizar(obj)) {
                     return "OK";
                     
@@ -138,6 +146,16 @@ public class ProductoControl {
         }
 
     }
+    
+    
+    public String eliminar(int id){
+        if(DATOS.eliminar(id)){
+           return "OK";
+      }else{
+          return "No se puede eliminar  el registro";
+    }
+  }
+    
     public String actualizarStock(int id, int nuevoStock) {
          if (DATOS.actualizarStock(id, nuevoStock)) {
             return "OK";
@@ -160,6 +178,19 @@ public class ProductoControl {
     
     }
     
+    public DefaultComboBoxModel seleccionarProveedor(){
+     DefaultComboBoxModel item = new DefaultComboBoxModel();
+     List<Proveedor> lista = new ArrayList<>();
+     lista = DATOSPRO.listar("");
+     
+        for (Proveedor pro : lista) {
+            item.addElement(new Proveedor(pro.getId(), pro.getTipoPersona(), pro.getNombre(), pro.getTipoDocumento(), pro.getNumDocumento(), pro.getDireccion(), pro.getTelefono(), pro.getEmail(), pro.isActivo()));
+            
+        }
+      return item;
+    
+    }
+    
     public int total(){
         return DATOS.total();
     }
@@ -168,6 +199,7 @@ public class ProductoControl {
         return this.registrosMostrados;
         
     }
+    
     
     
 }
