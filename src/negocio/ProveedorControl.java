@@ -67,7 +67,7 @@ public class ProveedorControl {
     if(DATOS.existe(numDocumento)){
         return "El proveedor  ya existe";
     }else{
-        obj.setTipoPersona("Proveedor");
+        obj.setTipo_Persona("Proveedor");
         obj.setNombre(nombre);
         obj.setTipoDocumento(tipoDocumento);
         obj.setNumDocumento(numDocumento);

@@ -4,11 +4,11 @@ package entidades;
 public class DetalleVenta {
     
   private int id;
-    private int ventaId;
-    private int productoId;
-    private String productoCodigo;
-    private String productoNombre;
-    private int productoStock;
+    private int venta_Id;
+    private int producto_Id;
+    private String codigo_Producto;
+    private String nombre_Producto;
+    private int stock_Producto;
     private int cantidad;
     private double precio;
     private double  descuento;
@@ -18,32 +18,32 @@ public class DetalleVenta {
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int id, int ventaId, int productoId, String productoCodigo, String productoNombre, int productoStock, int cantidad, double precio, double descuento, double subtotal) {
+    public DetalleVenta(int id, int venta_Id, int producto_Id, String codigo_Producto, String nombre_Producto, int stock_Producto, int cantidad, double precio, double descuento, double subtotal) {
         this.id = id;
-        this.ventaId = ventaId;
-        this.productoId = productoId;
-        this.productoCodigo = productoCodigo;
-        this.productoNombre = productoNombre;
-        this.productoStock = productoStock;
+        this.venta_Id = venta_Id;
+        this.producto_Id = producto_Id;
+        this.codigo_Producto = codigo_Producto;
+        this.nombre_Producto = nombre_Producto;
+        this.stock_Producto = stock_Producto;
         this.cantidad = cantidad;
         this.precio = precio;
         this.descuento = descuento;
         this.subtotal = subtotal;
     }
 
-    public DetalleVenta(int productoId, String productoCodigo, String productoNombre, int productoStock, int cantidad, double precio, double descuento, double subtotal) {
-        this.productoId = productoId;
-        this.productoCodigo = productoCodigo;
-        this.productoNombre = productoNombre;
-        this.productoStock = productoStock;
+    public DetalleVenta(int producto_Id, String codigo_Producto, String nombre_Producto, int stock_Producto, int cantidad, double precio, double descuento, double subtotal) {
+        this.producto_Id = producto_Id;
+        this.codigo_Producto = codigo_Producto;
+        this.nombre_Producto = nombre_Producto;
+        this.stock_Producto = stock_Producto;
         this.cantidad = cantidad;
         this.precio = precio;
         this.descuento = descuento;
         this.subtotal = subtotal;
     }
 
-    public DetalleVenta(int productoId, int cantidad, double precio, double subtotal) {
-        this.productoId = productoId;
+    public DetalleVenta(int producto_Id, int cantidad, double precio, double subtotal) {
+        this.producto_Id = producto_Id;
         this.cantidad = cantidad;
         this.precio = precio;
         this.subtotal = subtotal;
@@ -57,44 +57,44 @@ public class DetalleVenta {
         this.id = id;
     }
 
-    public int getVentaId() {
-        return ventaId;
+    public int getVenta_Id() {
+        return venta_Id;
     }
 
-    public void setVentaId(int ventaId) {
-        this.ventaId = ventaId;
+    public void setVenta_Id(int venta_Id) {
+        this.venta_Id = venta_Id;
     }
 
-    public int getProductoId() {
-        return productoId;
+    public int getProducto_Id() {
+        return producto_Id;
     }
 
-    public void setProductoId(int productoId) {
-        this.productoId = productoId;
+    public void setProducto_Id(int producto_Id) {
+        this.producto_Id = producto_Id;
     }
 
-    public String getProductoCodigo() {
-        return productoCodigo;
+    public String getCodigo_Producto() {
+        return codigo_Producto;
     }
 
-    public void setProductoCodigo(String productoCodigo) {
-        this.productoCodigo = productoCodigo;
+    public void setCodigo_Producto(String codigo_Producto) {
+        this.codigo_Producto = codigo_Producto;
     }
 
-    public String getProductoNombre() {
-        return productoNombre;
+    public String getNombre_Producto() {
+        return nombre_Producto;
     }
 
-    public void setProductoNombre(String productoNombre) {
-        this.productoNombre = productoNombre;
+    public void setNombre_Producto(String nombre_Producto) {
+        this.nombre_Producto = nombre_Producto;
     }
 
-    public int getProductoStock() {
-        return productoStock;
+    public int getStock_Producto() {
+        return stock_Producto;
     }
 
-    public void setProductoStock(int productoStock) {
-        this.productoStock = productoStock;
+    public void setStock_Producto(int stock_Producto) {
+        this.stock_Producto = stock_Producto;
     }
 
     public int getCantidad() {
@@ -131,12 +131,8 @@ public class DetalleVenta {
 
     @Override
     public String toString() {
-        return "DetalleVenta{" + "id=" + id + ", ventaId=" + ventaId + ", productoId=" + productoId + ", productoCodigo=" + productoCodigo + ", productoNombre=" + productoNombre + ", productoStock=" + productoStock + ", cantidad=" + cantidad + ", precio=" + precio + ", descuento=" + descuento + ", subtotal=" + subtotal + '}';
+        return "DetalleVenta{" + "id=" + id + ", venta_Id=" + venta_Id + ", producto_Id=" + producto_Id + ", codigo_Producto=" + codigo_Producto + ", nombre_Producto=" + nombre_Producto + ", stock_Producto=" + stock_Producto + ", cantidad=" + cantidad + ", precio=" + precio + ", descuento=" + descuento + ", subtotal=" + subtotal + '}';
     }
 
-
-    
-    
-  
   
 }

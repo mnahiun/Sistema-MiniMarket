@@ -183,15 +183,14 @@ public class FrmLogin extends javax.swing.JFrame {
            
         Usuario usuario = CONTROL.login(nombre, clave);
          
-            FrmPrincipal principal = new FrmPrincipal();
-      principal.setVisible(true);
-      this.dispose();
+         
       
       
       
        if (usuario != null) {
-           FrmCategoria frm = new FrmCategoria();
-          frm.setVisible(true);
+      FrmPrincipal principal = new FrmPrincipal();
+      principal.setVisible(true);
+      this.dispose();
        
          
     } else {

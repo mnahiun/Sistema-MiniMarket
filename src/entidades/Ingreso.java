@@ -11,7 +11,7 @@ public class Ingreso {
     private String usuarioNombre;
     private int personaId;
     private String personaNombre;
-    private String tipoComprobante;
+    private String tipo_Comprobante;
     private String serieComprobante;
     private String numComprobante;
     private Date fecha;
@@ -23,13 +23,13 @@ public class Ingreso {
     public Ingreso() {
     }
 
-    public Ingreso(int id, int usuarioId, String usuarioNombre, int personaId, String personaNombre, String tipoComprobante, String serieComprobante, String numComprobante, Date fecha, double impuesto, double total, String estado, List<DetalleIngreso> detalles) {
+    public Ingreso(int id, int usuarioId, String usuarioNombre, int personaId, String personaNombre, String tipo_Comprobante, String serieComprobante, String numComprobante, Date fecha, double impuesto, double total, String estado, List<DetalleIngreso> detalles) {
         this.id = id;
         this.usuarioId = usuarioId;
         this.usuarioNombre = usuarioNombre;
         this.personaId = personaId;
         this.personaNombre = personaNombre;
-        this.tipoComprobante = tipoComprobante;
+        this.tipo_Comprobante = tipo_Comprobante;
         this.serieComprobante = serieComprobante;
         this.numComprobante = numComprobante;
         this.fecha = fecha;
@@ -39,13 +39,13 @@ public class Ingreso {
         this.detalles = detalles;
     }
 
-    public Ingreso(int id, int usuarioId, String usuarioNombre, int personaId, String personaNombre, String tipoComprobante, String serieComprobante, String numComprobante, Date fecha, double impuesto, double total, String estado) {
+    public Ingreso(int id, int usuarioId, String usuarioNombre, int personaId, String personaNombre, String tipo_Comprobante, String serieComprobante, String numComprobante, Date fecha, double impuesto, double total, String estado) {
         this.id = id;
         this.usuarioId = usuarioId;
         this.usuarioNombre = usuarioNombre;
         this.personaId = personaId;
         this.personaNombre = personaNombre;
-        this.tipoComprobante = tipoComprobante;
+        this.tipo_Comprobante = tipo_Comprobante;
         this.serieComprobante = serieComprobante;
         this.numComprobante = numComprobante;
         this.fecha = fecha;
@@ -94,12 +94,12 @@ public class Ingreso {
         this.personaNombre = personaNombre;
     }
 
-    public String getTipoComprobante() {
-        return tipoComprobante;
+    public String getTipo_Comprobante() {
+        return tipo_Comprobante;
     }
 
-    public void setTipoComprobante(String tipoComprobante) {
-        this.tipoComprobante = tipoComprobante;
+    public void setTipo_Comprobante(String tipo_Comprobante) {
+        this.tipo_Comprobante = tipo_Comprobante;
     }
 
     public String getSerieComprobante() {

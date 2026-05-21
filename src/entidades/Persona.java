@@ -1,14 +1,13 @@
 
 package entidades;
 
-//Clase abstracta  que representa a una persona en el sistema.
 
 public abstract class  Persona {
    
     
     
    private int id;
-    private String tipoPersona;
+    private String tipo_Persona;
     private String nombre;
     private String tipoDocumento;
     private String numDocumento;
@@ -20,9 +19,9 @@ public abstract class  Persona {
     public Persona() {
     }
 
-    public Persona(int id, String tipoPersona, String nombre, String tipoDocumento, String numDocumento, String direccion, String telefono, String email, boolean activo) {
+    public Persona(int id, String tipo_Persona, String nombre, String tipoDocumento, String numDocumento, String direccion, String telefono, String email, boolean activo) {
         this.id = id;
-        this.tipoPersona = tipoPersona;
+        this.tipo_Persona = tipo_Persona;
         this.nombre = nombre;
         this.tipoDocumento = tipoDocumento;
         this.numDocumento = numDocumento;
@@ -40,12 +39,12 @@ public abstract class  Persona {
         this.id = id;
     }
 
-    public String getTipoPersona() {
-        return tipoPersona;
+    public String getTipo_Persona() {
+        return tipo_Persona;
     }
 
-    public void setTipoPersona(String tipoPersona) {
-        this.tipoPersona = tipoPersona;
+    public void setTipo_Persona(String tipo_Persona) {
+        this.tipo_Persona = tipo_Persona;
     }
 
     public String getNombre() {

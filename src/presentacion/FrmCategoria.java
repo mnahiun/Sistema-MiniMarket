@@ -168,17 +168,17 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addGap(34, 34, 34)
                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addGap(51, 51, 51)
                         .addComponent(btnBuscar)
-                        .addGap(26, 26, 26)
+                        .addGap(46, 46, 46)
                         .addComponent(btnNuevo)
-                        .addGap(36, 36, 36)
+                        .addGap(42, 42, 42)
                         .addComponent(btnEdtar)
-                        .addContainerGap(70, Short.MAX_VALUE))))
+                        .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +249,7 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
                         .addComponent(btnGuardar)
                         .addGap(74, 74, 74)
                         .addComponent(btnCancelar)))
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(384, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,7 +370,7 @@ public class FrmCategoria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        tabGeneral.setEnabledAt(1, true);
+      tabGeneral.setEnabledAt(1, true);
       tabGeneral.setEnabledAt(0, true);
       tabGeneral.setSelectedIndex(0);
       this.limpiar();

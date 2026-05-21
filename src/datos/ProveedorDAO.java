@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 public class ProveedorDAO implements CrudSimpleInterface<Proveedor>{
 
-     private final Conexion CON;
+    private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
     private boolean resp;
@@ -74,7 +74,7 @@ public class ProveedorDAO implements CrudSimpleInterface<Proveedor>{
     public boolean actualizar(Proveedor obj) {
         resp=false;
         try {
-          ps=CON.getConexion().prepareStatement("UPDATE persona SET nombre=?, tipoDocumento=?, numDocumento=?, direccion=?, telefono=?, email=? WHERE id=? AND tipoPersona='Proveedor'");
+          ps=CON.getConexion().prepareStatement("UPDATE persona SET nombre=?, tipoDocumento=?, numDocumento=?, direccion=?, telefono=?, email=? WHERE id=? AND tipo_Persona='Proveedor'");
           ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getTipoDocumento());
             ps.setString(3, obj.getNumDocumento());
@@ -155,7 +155,7 @@ public class ProveedorDAO implements CrudSimpleInterface<Proveedor>{
     public int total() {
          int totalRegistros=0;
         try {
-          ps=CON.getConexion().prepareStatement("SELECT COUNT(id) FROM persona WHERE tipoPersona='Proveedor'");
+          ps=CON.getConexion().prepareStatement("SELECT COUNT(id) FROM persona WHERE tipo_Persona='Proveedor'");
           rs=ps.executeQuery();
             while (rs.next()) {                
                 totalRegistros=rs.getInt("COUNT(id)");
@@ -176,7 +176,7 @@ public class ProveedorDAO implements CrudSimpleInterface<Proveedor>{
     public boolean existe(String texto) {
          resp= false;
         try{
-          ps=CON.getConexion().prepareStatement("SELECT id FROM persona WHERE tipoPersona='Proveedor'  AND numDocumento=?  OR nombre=?");
+          ps=CON.getConexion().prepareStatement("SELECT id FROM persona WHERE tipo_Persona='Proveedor'  AND numDocumento=?  OR nombre=?");
           ps.setString(1, texto);
           ps.setString(2, texto);
           rs=ps.executeQuery();

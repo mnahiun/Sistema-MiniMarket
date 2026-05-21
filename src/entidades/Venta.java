@@ -10,15 +10,15 @@ import java.util.List;
 public class Venta {
 
   private int id;
-  private int usuarioId;
+  private int usuario_Id;
   private String usuarioNombre;
-  private int personaId;
-  private String tipoDocumento;
-  private String numDocumento;
-  private String personaNombre;
-  private String tipoComprobante;
-  private String serieComprobante;
-  private String numComprobante;
+  private int persona_Id;
+  private String tipo_Documento;
+  private String num_Documento;
+  private String nombrePersona;
+  private String tipo_Comprobante;
+  private String serie_Comprobante;
+  private String num_Comprobante;
   private Date fecha;
   private double impuesto;
   private double total;
@@ -28,17 +28,17 @@ public class Venta {
     public Venta() {
     }
 
-    public Venta(int id, int usuarioId, String usuarioNombre, int personaId, String tipoDocumento, String numDocumento, String personaNombre, String tipoComprobante, String serieComprobante, String numComprobante, Date fecha, double impuesto, double total, String estado, List<DetalleVenta> detalles) {
+    public Venta(int id, int usuario_Id, String usuarioNombre, int persona_Id, String tipo_Documento, String num_Documento, String nombrePersona, String tipo_Comprobante, String serie_Comprobante, String num_Comprobante, Date fecha, double impuesto, double total, String estado, List<DetalleVenta> detalles) {
         this.id = id;
-        this.usuarioId = usuarioId;
+        this.usuario_Id = usuario_Id;
         this.usuarioNombre = usuarioNombre;
-        this.personaId = personaId;
-        this.tipoDocumento = tipoDocumento;
-        this.numDocumento = numDocumento;
-        this.personaNombre = personaNombre;
-        this.tipoComprobante = tipoComprobante;
-        this.serieComprobante = serieComprobante;
-        this.numComprobante = numComprobante;
+        this.persona_Id = persona_Id;
+        this.tipo_Documento = tipo_Documento;
+        this.num_Documento = num_Documento;
+        this.nombrePersona = nombrePersona;
+        this.tipo_Comprobante = tipo_Comprobante;
+        this.serie_Comprobante = serie_Comprobante;
+        this.num_Comprobante = num_Comprobante;
         this.fecha = fecha;
         this.impuesto = impuesto;
         this.total = total;
@@ -46,17 +46,17 @@ public class Venta {
         this.detalles = detalles;
     }
 
-    public Venta(int id, int usuarioId, String usuarioNombre, int personaId, String tipoDocumento, String numDocumento, String personaNombre, String tipoComprobante, String serieComprobante, String numComprobante, Date fecha, double impuesto, double total, String estado) {
+    public Venta(int id, int usuario_Id, String usuarioNombre, int persona_Id, String tipo_Documento, String num_Documento, String nombrePersona, String tipo_Comprobante, String serie_Comprobante, String num_Comprobante, Date fecha, double impuesto, double total, String estado) {
         this.id = id;
-        this.usuarioId = usuarioId;
+        this.usuario_Id = usuario_Id;
         this.usuarioNombre = usuarioNombre;
-        this.personaId = personaId;
-        this.tipoDocumento = tipoDocumento;
-        this.numDocumento = numDocumento;
-        this.personaNombre = personaNombre;
-        this.tipoComprobante = tipoComprobante;
-        this.serieComprobante = serieComprobante;
-        this.numComprobante = numComprobante;
+        this.persona_Id = persona_Id;
+        this.tipo_Documento = tipo_Documento;
+        this.num_Documento = num_Documento;
+        this.nombrePersona = nombrePersona;
+        this.tipo_Comprobante = tipo_Comprobante;
+        this.serie_Comprobante = serie_Comprobante;
+        this.num_Comprobante = num_Comprobante;
         this.fecha = fecha;
         this.impuesto = impuesto;
         this.total = total;
@@ -72,12 +72,12 @@ public class Venta {
         this.id = id;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
+    public int getUsuario_Id() {
+        return usuario_Id;
     }
 
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario_Id(int usuario_Id) {
+        this.usuario_Id = usuario_Id;
     }
 
     public String getUsuarioNombre() {
@@ -88,60 +88,60 @@ public class Venta {
         this.usuarioNombre = usuarioNombre;
     }
 
-    public int getPersonaId() {
-        return personaId;
+    public int getPersona_Id() {
+        return persona_Id;
     }
 
-    public void setPersonaId(int personaId) {
-        this.personaId = personaId;
+    public void setPersona_Id(int persona_Id) {
+        this.persona_Id = persona_Id;
     }
 
-    public String getTipoDocumento() {
-        return tipoDocumento;
+    public String getTipo_Documento() {
+        return tipo_Documento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTipo_Documento(String tipo_Documento) {
+        this.tipo_Documento = tipo_Documento;
     }
 
-    public String getNumDocumento() {
-        return numDocumento;
+    public String getNum_Documento() {
+        return num_Documento;
     }
 
-    public void setNumDocumento(String numDocumento) {
-        this.numDocumento = numDocumento;
+    public void setNum_Documento(String num_Documento) {
+        this.num_Documento = num_Documento;
     }
 
-    public String getPersonaNombre() {
-        return personaNombre;
+    public String getNombrePersona() {
+        return nombrePersona;
     }
 
-    public void setPersonaNombre(String personaNombre) {
-        this.personaNombre = personaNombre;
+    public void setNombrePersona(String nombrePersona) {
+        this.nombrePersona = nombrePersona;
     }
 
-    public String getTipoComprobante() {
-        return tipoComprobante;
+    public String getTipo_Comprobante() {
+        return tipo_Comprobante;
     }
 
-    public void setTipoComprobante(String tipoComprobante) {
-        this.tipoComprobante = tipoComprobante;
+    public void setTipo_Comprobante(String tipo_Comprobante) {
+        this.tipo_Comprobante = tipo_Comprobante;
     }
 
-    public String getSerieComprobante() {
-        return serieComprobante;
+    public String getSerie_Comprobante() {
+        return serie_Comprobante;
     }
 
-    public void setSerieComprobante(String serieComprobante) {
-        this.serieComprobante = serieComprobante;
+    public void setSerie_Comprobante(String serie_Comprobante) {
+        this.serie_Comprobante = serie_Comprobante;
     }
 
-    public String getNumComprobante() {
-        return numComprobante;
+    public String getNum_Comprobante() {
+        return num_Comprobante;
     }
 
-    public void setNumComprobante(String numComprobante) {
-        this.numComprobante = numComprobante;
+    public void setNum_Comprobante(String num_Comprobante) {
+        this.num_Comprobante = num_Comprobante;
     }
 
     public Date getFecha() {
@@ -183,5 +183,15 @@ public class Venta {
     public void setDetalles(List<DetalleVenta> detalles) {
         this.detalles = detalles;
     }
-  
+
+    @Override
+    public String toString() {
+        return serie_Comprobante + "-" + num_Comprobante + " | S/." + total;
+    }
+
+    
+
+     
+    
+    
 }

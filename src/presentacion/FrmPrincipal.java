@@ -42,7 +42,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
 
@@ -56,8 +55,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         mnuInventario.setBackground(new java.awt.Color(0, 204, 204));
         mnuInventario.setForeground(new java.awt.Color(0, 0, 0));
+        mnuInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/inventario.png"))); // NOI18N
         mnuInventario.setText("Inventario");
-        mnuInventario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuInventario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem1.setText("Categorias");
@@ -80,9 +80,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuBar.add(mnuInventario);
 
         mnuAcceso.setForeground(new java.awt.Color(0, 0, 0));
+        mnuAcceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/Acceso.png"))); // NOI18N
         mnuAcceso.setText("Acceso");
-        mnuAcceso.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuAcceso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem3.setText("Usuarios");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         mnuAcceso.add(jMenuItem3);
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem4.setText("Roles");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,10 +105,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuBar.add(mnuAcceso);
 
         mnuVentas.setForeground(new java.awt.Color(0, 0, 0));
+        mnuVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/Ventas.png"))); // NOI18N
         mnuVentas.setText("Ventas");
-        mnuVentas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuVentas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem5.setText("Clientes");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,18 +118,32 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         mnuVentas.add(jMenuItem5);
 
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem6.setText("Ventas");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         mnuVentas.add(jMenuItem6);
 
         menuBar.add(mnuVentas);
 
         mnuCompras.setForeground(new java.awt.Color(0, 0, 0));
+        mnuCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/compras.png"))); // NOI18N
         mnuCompras.setText("Compras");
-        mnuCompras.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuCompras.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem9.setText("Ingresos");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         mnuCompras.add(jMenuItem9);
 
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem10.setText("Proveedores");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,20 +155,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuBar.add(mnuCompras);
 
         mnuConsultas.setForeground(new java.awt.Color(0, 0, 0));
+        mnuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/Consultas.png"))); // NOI18N
         mnuConsultas.setText("Consultas");
-        mnuConsultas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuConsultas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jMenuItem7.setText("Consulta ventas");
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem7.setText("Pagos");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         mnuConsultas.add(jMenuItem7);
-
-        jMenuItem8.setText("Consulta compras");
-        mnuConsultas.add(jMenuItem8);
 
         menuBar.add(mnuConsultas);
 
         mnuSalir.setForeground(new java.awt.Color(0, 0, 0));
+        mnuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/cerrar-sesion (2).png"))); // NOI18N
         mnuSalir.setText("Salir");
-        mnuSalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnuSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         mnuSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuSalirActionPerformed(evt);
@@ -177,24 +200,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-         FrmRol frm = new FrmRol();
+       FrmRol frm = new FrmRol();
        desktopPane.add(frm);
        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+      FrmClientes frm = new FrmClientes();
+      desktopPane.add(frm);
+      frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-           FrmUsuarios frm = new FrmUsuarios();
+       FrmUsuarios frm = new FrmUsuarios();
        desktopPane.add(frm);
        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -213,7 +238,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-          FrmProveedor frm = new FrmProveedor();
+       FrmProveedor frm = new FrmProveedor();
        desktopPane.add(frm);
        frm.setVisible(true);
     }//GEN-LAST:event_jMenuItem10ActionPerformed
@@ -226,9 +251,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        FrmVenta frm = new FrmVenta();
+        desktopPane.add(frm);
+        frm.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+       FrmPago frm = new FrmPago();
+       desktopPane.add(frm);
+       frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        FrmIngresos frm = new FrmIngresos();
+        desktopPane.add(frm);
+        frm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -273,7 +315,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu mnuAcceso;

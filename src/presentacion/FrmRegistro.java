@@ -85,6 +85,7 @@ public class FrmRegistro extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -149,6 +150,9 @@ public class FrmRegistro extends javax.swing.JDialog {
         txtDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtDescripcion);
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/images/clorox_96x96.png"))); // NOI18N
+        jLabel11.setText("jLabel11");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -186,14 +190,18 @@ public class FrmRegistro extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(257, 257, 257))
+                .addGap(282, 282, 282)
+                .addComponent(jLabel11)
+                .addGap(89, 89, 89))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel11))
+                .addGap(181, 181, 181)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -228,7 +236,7 @@ public class FrmRegistro extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(btnRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -279,35 +287,35 @@ public class FrmRegistro extends javax.swing.JDialog {
      }
      
          if (txtTipoDocumento.getText().length()==0  || txtTipoDocumento.getText().length() > 20) {
-         JOptionPane.showMessageDialog(this, "Debes ingresar un nombre y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
+         JOptionPane.showMessageDialog(this, "Debes ingresar un tipo de documento y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
          txtTipoDocumento.requestFocus();
          return;
          
      }
          
          if (txtNumDocumento.getText().length()==0  || txtNumDocumento.getText().length() > 20) {
-         JOptionPane.showMessageDialog(this, "Debes ingresar un nombre y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
+         JOptionPane.showMessageDialog(this, "Debes ingresar un numero de documento y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
          txtNumDocumento.requestFocus();
          return;
          
      }
          
-          if (txtDescripcion.getText().length()==0  || txtDescripcion.getText().length() > 20) {
-         JOptionPane.showMessageDialog(this, "Debes ingresar un nombre y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
+          if (txtDescripcion.getText().length()==0  || txtDescripcion.getText().length() > 240) {
+         JOptionPane.showMessageDialog(this, "Debes ingresar una descripcion y no debe ser mayor a 240 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
          txtDescripcion.requestFocus();
          return;
          
      }
          
      if (txtEmail.getText().length()==0  || txtEmail.getText().length() > 20) {
-         JOptionPane.showMessageDialog(this, "Debes ingresar un nombre y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
+         JOptionPane.showMessageDialog(this, "Debes ingresar un email y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
          txtEmail.requestFocus();
          return;
          
      }
      
       if (txtTelefono.getText().length()==0  || txtTelefono.getText().length() > 20) {
-         JOptionPane.showMessageDialog(this, "Debes ingresar un nombre y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
+         JOptionPane.showMessageDialog(this, "Debes ingresar un telefono y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
          txtTelefono.requestFocus();
          return;
          
@@ -316,14 +324,14 @@ public class FrmRegistro extends javax.swing.JDialog {
         Rol rolId = (Rol)cboRol.getSelectedItem();
       
        if (txtClave.getText().length()==0  || txtClave.getText().length() > 20) {
-         JOptionPane.showMessageDialog(this, "Debes ingresar un nombre y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
+         JOptionPane.showMessageDialog(this, "Debes ingresar una clave y no debe ser mayor a 20 caracteres, es obligatorio", "Sistema", JOptionPane.WARNING_MESSAGE );
          txtClave.requestFocus();
          return;
          
      }else{
           String resp;
       // Guardar 
-      resp= this.CONTROL.insertar(rolId.getId(), txtNombre.getText(), txtTipoDocumento.getText(), txtNumDocumento.getText(), txtDescripcion.getText(), txtTelefono.getText(), txtEmail.getText(), txtClave.getText());
+      resp=this.CONTROL.insertar(rolId.getId(), txtNombre.getText(), txtTipoDocumento.getText(), txtNumDocumento.getText(), txtDescripcion.getText(), txtTelefono.getText(), txtEmail.getText(), txtClave.getText());
         if (resp.equals("OK")) {
             this.mensajeOk("Registrado correctamente ");
             this.limpiar();
@@ -383,6 +391,7 @@ public class FrmRegistro extends javax.swing.JDialog {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

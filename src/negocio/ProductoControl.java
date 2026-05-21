@@ -36,11 +36,11 @@ public class ProductoControl {
      List<Producto> lista = new ArrayList<>();
      lista.addAll(DATOS.listar(texto));
 
-     String[] titulos = {"Id", "Categoria Id", "Codigo", "Nombre", "Precio Venta", "Stock", "Descripcion", "Imagen","Estado", "Proveedor Id"};
+     String[] titulos = {"Id", "Categoria Id", "Codigo", "Nombre", "Precio Venta", "Stock", "Descripcion", "Estado", "Proveedor Id"};
      this.modeloTabla = new DefaultTableModel(null, titulos);
 
      String estado;
-     String[] registro =  new String[10];
+     String[] registro =  new String[9];
      this.registrosMostrados=0;
      
 
@@ -60,9 +60,8 @@ public class ProductoControl {
             registro[4] = Double.toString(item.getPrecio_Venta());
             registro[5] = Integer.toString(item.getStock());
             registro[6] = item.getDescripcion();
-            registro[7] = item.getImagen();
-            registro[8] = estado;
-            registro[9] = Integer.toString(item.getProveedor_Id());
+            registro[7] = estado;
+            registro[8] = Integer.toString(item.getProveedor_Id());
         this.modeloTabla.addRow(registro);
         this.registrosMostrados=this.registrosMostrados+1;
     
@@ -70,7 +69,7 @@ public class ProductoControl {
        return this.modeloTabla;
     }
 
-    public String insertar(int categoria_Id, String codigo, String nombre, double precio_Venta, int stock, String descripcion, String imagen, int proveedor_Id){
+    public String insertar(int categoria_Id, String codigo, String nombre, double precio_Venta, int stock, String descripcion, int proveedor_Id){
     if(DATOS.existe(nombre)){
         return "El registro ya existe";
     }else{
@@ -80,7 +79,6 @@ public class ProductoControl {
         obj.setPrecio_Venta(precio_Venta);
         obj.setStock(stock);
         obj.setDescripcion(descripcion);
-        obj.setImagen(imagen);
         obj.setProveedor_Id(proveedor_Id);
         if(DATOS.insertar(obj)){
             return "OK";
@@ -90,7 +88,7 @@ public class ProductoControl {
     }
     }
 
-    public String actualizar(int id, int categoria_Id, String codigo, String nombre, String nombreAnt, double precio_Venta, int stock, String descripcion, String imagen, int proveedor_Id){
+    public String actualizar(int id, int categoria_Id, String codigo, String nombre, String nombreAnt, double precio_Venta, int stock, String descripcion, int proveedor_Id){
         if (nombre.equals(nombreAnt)) {
            obj.setId(id);
             obj.setCategoria_Id(categoria_Id);
@@ -99,7 +97,6 @@ public class ProductoControl {
             obj.setPrecio_Venta(precio_Venta);
             obj.setStock(stock);
             obj.setDescripcion(descripcion);
-            obj.setImagen(imagen);
             obj.setProveedor_Id(proveedor_Id);
             if (DATOS.actualizar(obj)) {
                 return "OK";
@@ -118,7 +115,6 @@ public class ProductoControl {
                 obj.setPrecio_Venta(precio_Venta);
                 obj.setStock(stock);
                 obj.setDescripcion(descripcion);
-                obj.setImagen(imagen);
                 obj.setProveedor_Id(proveedor_Id);
                 if (DATOS.actualizar(obj)) {
                     return "OK";
@@ -184,7 +180,7 @@ public class ProductoControl {
      lista = DATOSPRO.listar("");
      
         for (Proveedor pro : lista) {
-            item.addElement(new Proveedor(pro.getId(), pro.getTipoPersona(), pro.getNombre(), pro.getTipoDocumento(), pro.getNumDocumento(), pro.getDireccion(), pro.getTelefono(), pro.getEmail(), pro.isActivo()));
+            item.addElement(new Proveedor(pro.getId(), pro.getTipo_Persona(), pro.getNombre(), pro.getTipoDocumento(), pro.getNumDocumento(), pro.getDireccion(), pro.getTelefono(), pro.getEmail(), pro.isActivo()));
             
         }
       return item;

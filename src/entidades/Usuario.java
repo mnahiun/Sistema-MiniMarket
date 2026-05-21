@@ -114,10 +114,10 @@ public class Usuario {
         this.activo = activo;
     }
 
-    // Metodo toString
+    
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", rolId=" + rolId + ", nombre=" + nombre + ", tipoDocumento=" + tipoDocumento + ", numeroDocumento=" + numeroDocumento + ", descripcion=" + descripcion + ", telefono=" + telefono + ", email=" + email + ", clave=" + clave + ", activo=" + activo + '}';
+        return nombre;
     }
     
     

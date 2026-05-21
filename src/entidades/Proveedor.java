@@ -8,16 +8,16 @@ public class Proveedor  extends Persona{
     }
 
     
-    public Proveedor(int id, String tipoPersona, String nombre, String tipoDocumento, String numDocumento,
+    public Proveedor(int id, String tipo_Persona, String nombre, String tipoDocumento, String numDocumento,
                                       String direccion, String telefono, String email, boolean activo) {
         
-        super(id, tipoPersona, nombre, tipoDocumento, numDocumento, direccion, telefono, email, activo);
+        super(id, tipo_Persona, nombre, tipoDocumento, numDocumento, direccion, telefono, email, activo);
     }
 
      
    @Override
     public String mostrarInfo() {
-        return "Persona: " + getTipoPersona()+ "\n"
+        return "Persona: " + getTipo_Persona()+ "\n"
              + "Id: " + getId() + "\n"
              + "Nombre: " + getNombre() + "\n"
              + "Tipo documento: " + getTipoDocumento() + "\n"
@@ -31,7 +31,7 @@ public class Proveedor  extends Persona{
 
     @Override
     public String toString() {
-        return getNombre();
+        return getNombre() + getId();
     }
        
     
